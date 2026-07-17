@@ -1,0 +1,209 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6F9F7"/>
+      <stop offset="100%" stop-color="#ECF3EE"/>
+    </linearGradient>
+    <linearGradient id="navGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0F2E20"/>
+      <stop offset="100%" stop-color="#1B4332"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0F2E20" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="1400" height="70" fill="url(#navGrad)"/>
+  <rect x="34" y="21" width="28" height="28" rx="7" fill="#52B788"/>
+  <path d="M42 40 l6 -12 l6 12 z" fill="#0F2E20"/>
+  <text x="76" y="32" fill="#FFFFFF" font-size="18" font-weight="700">Controle de Gastos</text>
+  <text x="76" y="50" fill="#95C9A8" font-size="11">Gest&#227;o financeira residencial &#8226; .NET C# + React/TS</text>
+
+  <rect x="1120" y="19" width="130" height="32" rx="16" fill="#2D6A4F"/>
+  <circle cx="1140" cy="35" r="6" fill="#74E8A6"/>
+  <text x="1152" y="39" fill="#DFF5E6" font-size="11">Cloud SQL conectado</text>
+
+  <rect x="1264" y="19" width="112" height="32" rx="8" fill="#52B788"/>
+  <text x="1320" y="39" fill="#0F2E20" font-size="12" font-weight="700" text-anchor="middle">+ Nova pessoa</text>
+
+  <!-- Sidebar: pessoas -->
+  <g filter="url(#shadow)">
+    <rect x="24" y="94" width="272" height="782" rx="14" fill="#FFFFFF"/>
+  </g>
+  <text x="48" y="130" fill="#1B4332" font-size="14" font-weight="700">PESSOAS CADASTRADAS</text>
+
+  <rect x="48" y="150" width="224" height="52" rx="8" fill="#F0F9F3"/>
+  <rect x="48" y="150" width="4" height="52" rx="2" fill="#2D6A4F"/>
+  <circle cx="76" cy="176" r="16" fill="#2D6A4F"/>
+  <text x="76" y="180" fill="#FFFFFF" font-size="12" font-weight="700" text-anchor="middle">MS</text>
+  <text x="100" y="171" fill="#1B4332" font-size="13" font-weight="700">Maria Silva</text>
+  <text x="100" y="188" fill="#5A7768" font-size="11">34 anos &#8226; 12 transa&#231;&#245;es</text>
+
+  <rect x="48" y="210" width="224" height="52" rx="8" fill="#FBFDFC"/>
+  <circle cx="76" cy="236" r="16" fill="#8FBFA3"/>
+  <text x="76" y="240" fill="#FFFFFF" font-size="12" font-weight="700" text-anchor="middle">JP</text>
+  <text x="100" y="231" fill="#1B4332" font-size="13" font-weight="600">Jo&#227;o Pereira</text>
+  <text x="100" y="248" fill="#5A7768" font-size="11">41 anos &#8226; 8 transa&#231;&#245;es</text>
+
+  <rect x="48" y="270" width="224" height="52" rx="8" fill="#FBFDFC"/>
+  <circle cx="76" cy="296" r="16" fill="#8FBFA3"/>
+  <text x="76" y="300" fill="#FFFFFF" font-size="12" font-weight="700" text-anchor="middle">LC</text>
+  <text x="100" y="291" fill="#1B4332" font-size="13" font-weight="600">Lucas Costa</text>
+  <text x="100" y="308" fill="#E76F51" font-size="11">16 anos &#8226; apenas despesas</text>
+
+  <rect x="48" y="330" width="224" height="52" rx="8" fill="#FBFDFC"/>
+  <circle cx="76" cy="356" r="16" fill="#8FBFA3"/>
+  <text x="76" y="360" fill="#FFFFFF" font-size="12" font-weight="700" text-anchor="middle">AF</text>
+  <text x="100" y="351" fill="#1B4332" font-size="13" font-weight="600">Ana Ferreira</text>
+  <text x="100" y="368" fill="#5A7768" font-size="11">29 anos &#8226; 5 transa&#231;&#245;es</text>
+
+  <line x1="48" y1="408" x2="272" y2="408" stroke="#EAF3ED" stroke-width="2"/>
+  <text x="48" y="436" fill="#5A7768" font-size="11" font-weight="700">REGRA DE NEG&#211;CIO</text>
+  <rect x="48" y="448" width="224" height="60" rx="8" fill="#FDF3EC"/>
+  <text x="60" y="468" fill="#B5502E" font-size="11" font-weight="600">Menores de 18 anos</text>
+  <text x="60" y="484" fill="#8A5A45" font-size="10">s&#243; podem cadastrar</text>
+  <text x="60" y="498" fill="#8A5A45" font-size="10">transa&#231;&#245;es do tipo despesa.</text>
+
+  <text x="48" y="540" fill="#5A7768" font-size="11" font-weight="700">EXCLUIR PESSOA</text>
+  <rect x="48" y="552" width="224" height="42" rx="8" fill="#FFFFFF" stroke="#F3D9CE"/>
+  <text x="60" y="577" fill="#C1442B" font-size="11">Remove pessoa e todas as</text>
+  <text x="60" y="590" fill="#C1442B" font-size="11">suas transa&#231;&#245;es (cascata)</text>
+
+  <!-- Main: KPI cards for selected pessoa -->
+  <text x="320" y="126" fill="#1B4332" font-size="16" font-weight="700">Maria Silva</text>
+  <text x="320" y="146" fill="#5A7768" font-size="12">Resumo individual de receitas, despesas e saldo</text>
+
+  <g filter="url(#shadow)">
+    <rect x="320" y="164" width="256" height="92" rx="14" fill="#FFFFFF"/>
+  </g>
+  <text x="344" y="196" fill="#5A7768" font-size="11" font-weight="700">TOTAL RECEITAS</text>
+  <text x="344" y="228" fill="#2A9D8F" font-size="26" font-weight="800">R$ 4.850,00</text>
+
+  <g filter="url(#shadow)">
+    <rect x="592" y="164" width="256" height="92" rx="14" fill="#FFFFFF"/>
+  </g>
+  <text x="616" y="196" fill="#5A7768" font-size="11" font-weight="700">TOTAL DESPESAS</text>
+  <text x="616" y="228" fill="#E63946" font-size="26" font-weight="800">R$ 3.120,00</text>
+
+  <g filter="url(#shadow)">
+    <rect x="864" y="164" width="256" height="92" rx="14" fill="#FFFFFF"/>
+  </g>
+  <text x="888" y="196" fill="#5A7768" font-size="11" font-weight="700">SALDO (RECEITA &#8722; DESPESA)</text>
+  <text x="888" y="228" fill="#1B4332" font-size="26" font-weight="800">R$ 1.730,00</text>
+
+  <!-- New transaction form -->
+  <g filter="url(#shadow)">
+    <rect x="1136" y="164" width="240" height="92" rx="14" fill="#1B4332"/>
+  </g>
+  <text x="1160" y="196" fill="#95C9A8" font-size="11" font-weight="700">A&#199;&#195;O R&#193;PIDA</text>
+  <text x="1160" y="220" fill="#FFFFFF" font-size="13" font-weight="700">+ Nova transa&#231;&#227;o</text>
+  <text x="1160" y="240" fill="#B7DCC4" font-size="10">para Maria Silva</text>
+
+  <!-- Transactions table -->
+  <g filter="url(#shadow)">
+    <rect x="320" y="276" width="1056" height="360" rx="14" fill="#FFFFFF"/>
+  </g>
+  <text x="344" y="308" fill="#1B4332" font-size="14" font-weight="700">TRANSA&#199;&#213;ES DE MARIA SILVA</text>
+
+  <text x="344" y="336" fill="#5A7768" font-size="10" font-weight="700">DESCRI&#199;&#195;O</text>
+  <text x="700" y="336" fill="#5A7768" font-size="10" font-weight="700">TIPO</text>
+  <text x="860" y="336" fill="#5A7768" font-size="10" font-weight="700">VALOR</text>
+  <text x="1040" y="336" fill="#5A7768" font-size="10" font-weight="700">ID</text>
+  <line x1="344" y1="346" x2="1352" y2="346" stroke="#EAF3ED" stroke-width="1.5"/>
+
+  <!-- rows -->
+  <g>
+    <text x="344" y="374" fill="#1B4332" font-size="12">Sal&#225;rio mensal</text>
+    <rect x="700" y="358" width="76" height="24" rx="12" fill="#E4F5EF"/>
+    <text x="738" y="374" fill="#2A9D8F" font-size="10" font-weight="700" text-anchor="middle">RECEITA</text>
+    <text x="860" y="374" fill="#2A9D8F" font-size="12" font-weight="600">+ R$ 4.200,00</text>
+    <text x="1040" y="374" fill="#9AAAA0" font-size="11">#00113</text>
+  </g>
+  <line x1="344" y1="392" x2="1352" y2="392" stroke="#F3F7F4" stroke-width="1.5"/>
+
+  <g>
+    <text x="344" y="418" fill="#1B4332" font-size="12">Supermercado</text>
+    <rect x="700" y="402" width="76" height="24" rx="12" fill="#FCEAEA"/>
+    <text x="738" y="418" fill="#E63946" font-size="10" font-weight="700" text-anchor="middle">DESPESA</text>
+    <text x="860" y="418" fill="#E63946" font-size="12" font-weight="600">&#8722; R$ 640,00</text>
+    <text x="1040" y="418" fill="#9AAAA0" font-size="11">#00114</text>
+  </g>
+  <line x1="344" y1="436" x2="1352" y2="436" stroke="#F3F7F4" stroke-width="1.5"/>
+
+  <g>
+    <text x="344" y="462" fill="#1B4332" font-size="12">Conta de energia</text>
+    <rect x="700" y="446" width="76" height="24" rx="12" fill="#FCEAEA"/>
+    <text x="738" y="462" fill="#E63946" font-size="10" font-weight="700" text-anchor="middle">DESPESA</text>
+    <text x="860" y="462" fill="#E63946" font-size="12" font-weight="600">&#8722; R$ 310,00</text>
+    <text x="1040" y="462" fill="#9AAAA0" font-size="11">#00115</text>
+  </g>
+  <line x1="344" y1="480" x2="1352" y2="480" stroke="#F3F7F4" stroke-width="1.5"/>
+
+  <g>
+    <text x="344" y="506" fill="#1B4332" font-size="12">Freelance design</text>
+    <rect x="700" y="490" width="76" height="24" rx="12" fill="#E4F5EF"/>
+    <text x="738" y="506" fill="#2A9D8F" font-size="10" font-weight="700" text-anchor="middle">RECEITA</text>
+    <text x="860" y="506" fill="#2A9D8F" font-size="12" font-weight="600">+ R$ 650,00</text>
+    <text x="1040" y="506" fill="#9AAAA0" font-size="11">#00116</text>
+  </g>
+  <line x1="344" y1="524" x2="1352" y2="524" stroke="#F3F7F4" stroke-width="1.5"/>
+
+  <g>
+    <text x="344" y="550" fill="#1B4332" font-size="12">Farm&#225;cia</text>
+    <rect x="700" y="534" width="76" height="24" rx="12" fill="#FCEAEA"/>
+    <text x="738" y="550" fill="#E63946" font-size="10" font-weight="700" text-anchor="middle">DESPESA</text>
+    <text x="860" y="550" fill="#E63946" font-size="12" font-weight="600">&#8722; R$ 128,00</text>
+    <text x="1040" y="550" fill="#9AAAA0" font-size="11">#00117</text>
+  </g>
+  <line x1="344" y1="568" x2="1352" y2="568" stroke="#F3F7F4" stroke-width="1.5"/>
+
+  <!-- new transaction inline form -->
+  <rect x="344" y="586" width="1008" height="34" rx="8" fill="#F6F9F7" stroke="#EAF3ED"/>
+  <text x="356" y="607" fill="#9AAAA0" font-size="11">Descri&#231;&#227;o...</text>
+  <line x1="600" y1="586" x2="600" y2="620" stroke="#EAF3ED"/>
+  <text x="614" y="607" fill="#9AAAA0" font-size="11">Tipo: Despesa / Receita</text>
+  <line x1="840" y1="586" x2="840" y2="620" stroke="#EAF3ED"/>
+  <text x="854" y="607" fill="#9AAAA0" font-size="11">Valor R$</text>
+  <rect x="1246" y="590" width="90" height="26" rx="6" fill="#2D6A4F"/>
+  <text x="1291" y="607" fill="#FFFFFF" font-size="11" font-weight="700" text-anchor="middle">Adicionar</text>
+
+  <!-- Resumo geral (bottom, full width) -->
+  <g filter="url(#shadow)">
+    <rect x="320" y="654" width="1056" height="222" rx="14" fill="#1B4332"/>
+  </g>
+  <text x="344" y="688" fill="#FFFFFF" font-size="14" font-weight="700">RESUMO GERAL &#8226; TODAS AS PESSOAS</text>
+  <text x="344" y="708" fill="#95C9A8" font-size="11">Totais consolidados de receitas, despesas e saldo l&#237;quido</text>
+
+  <!-- mini table per person -->
+  <text x="344" y="738" fill="#95C9A8" font-size="10" font-weight="700">PESSOA</text>
+  <text x="620" y="738" fill="#95C9A8" font-size="10" font-weight="700">RECEITAS</text>
+  <text x="800" y="738" fill="#95C9A8" font-size="10" font-weight="700">DESPESAS</text>
+  <text x="980" y="738" fill="#95C9A8" font-size="10" font-weight="700">SALDO</text>
+  <line x1="344" y1="748" x2="1352" y2="748" stroke="#2D6A4F" stroke-width="1.5"/>
+
+  <text x="344" y="772" fill="#FFFFFF" font-size="12">Maria Silva</text>
+  <text x="620" y="772" fill="#74E8A6" font-size="12">R$ 4.850,00</text>
+  <text x="800" y="772" fill="#F2A6AC" font-size="12">R$ 3.120,00</text>
+  <text x="980" y="772" fill="#FFFFFF" font-size="12" font-weight="700">R$ 1.730,00</text>
+
+  <text x="344" y="800" fill="#FFFFFF" font-size="12">Jo&#227;o Pereira</text>
+  <text x="620" y="800" fill="#74E8A6" font-size="12">R$ 3.200,00</text>
+  <text x="800" y="800" fill="#F2A6AC" font-size="12">R$ 2.410,00</text>
+  <text x="980" y="800" fill="#FFFFFF" font-size="12" font-weight="700">R$ 790,00</text>
+
+  <text x="344" y="828" fill="#FFFFFF" font-size="12">Lucas Costa <tspan fill="#95C9A8" font-size="10">(menor de idade)</tspan></text>
+  <text x="620" y="828" fill="#74E8A6" font-size="12">R$ 0,00</text>
+  <text x="800" y="828" fill="#F2A6AC" font-size="12">R$ 540,00</text>
+  <text x="980" y="828" fill="#FFFFFF" font-size="12" font-weight="700">&#8722; R$ 540,00</text>
+
+  <line x1="344" y1="842" x2="1352" y2="842" stroke="#2D6A4F" stroke-width="1.5"/>
+  <text x="344" y="864" fill="#FFFFFF" font-size="13" font-weight="800">TOTAL GERAL</text>
+  <text x="620" y="864" fill="#74E8A6" font-size="13" font-weight="800">R$ 8.700,00</text>
+  <text x="800" y="864" fill="#F2A6AC" font-size="13" font-weight="800">R$ 6.070,00</text>
+  <text x="980" y="864" fill="#FFFFFF" font-size="13" font-weight="800">R$ 2.630,00</text>
+
+  <text x="700" y="895" fill="#9AAAA0" font-size="11" text-anchor="middle">Prot&#243;tipo conceitual do sistema (React/TS + .NET C#) &#8226; dados fict&#237;cios para ilustra&#231;&#227;o</text>
+</svg>
