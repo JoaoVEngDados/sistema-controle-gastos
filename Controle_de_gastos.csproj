@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.10" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Controle_de_gastos\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="Controle_de_gastos\appsettings.json" />
+    <_ContentIncludedByDefault Remove="Controle_de_gastos\obj\Controle_de_gastos.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="Controle_de_gastos\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="Controle_de_gastos\Properties\launchSettings.json" />
+  </ItemGroup>
+
+</Project>
