@@ -17,6 +17,22 @@ interface Transacao {
   pessoaId: number;
 }
 
+// esse são as  consulta de totais gerais e individuais
+// Facilita  que o sistema entenda os dados do resumo
+interface ResumoPessoa {
+  nome: string;
+  receitas: number;
+  despesas: number;
+  saldo: number;
+}
+
+interface ResumoGeral {
+  pessoas: ResumoPessoa[];
+  totalReceitas: number;
+  totalDespesas: number;
+  saldoGeral: number;
+}
+
 export default function App(){
   // Estados da Tela 
   // o 'useState' ele guarda a informações temporariamente para conseguir 
@@ -25,6 +41,8 @@ export default function App(){
   // lista de dados vindas do banco
   const [pessoas , setPessoas] = useState<Pessoa[]>([]);
   const [transacoes,setTransacoes] = useState<Transacao[]>([]);
+  // Estado que armazena a consulta de totais vinda do back-end
+  const [resumo, setResumo] = useState<ResumoGeral | null>(null);
 
   // Controles de navegação da interface
   const [pessoaSelecionada,setPessoaSelecionada] = useState<Pessoa | null>(null);
@@ -65,6 +83,14 @@ export default function App(){
         const dadosTransacoes = await resTransacoes.json();
         setTransacoes(dadosTransacoes);
       }
+
+      // Busca os totais gerais calculados no servidor (Regra da Consulta de Totais)
+      const resResumo = await fetch('http://localhost:5014/api/resumo');
+      if (resResumo.ok) {
+        const dadosResumo = await resResumo.json();
+        setResumo(dadosResumo);
+      }
+
     } catch (erro){
       console.error('Falha na comunicação com o servidor ');
     } finally {
@@ -171,11 +197,20 @@ export default function App(){
          ? transacoes.filter(t => t.pessoaId === pessoaSelecionada.id)
          :[];
       
-      const totalReceitas = transacoesDaPessoa.filter(t => t.tipo === 'RECEITA').reduce((acc,curr) => acc + curr.valor,0);
-      const totalDespesas = transacoesDaPessoa.filter(t => t.tipo === "DESPESA").reduce((acc, curr) => acc + curr.valor,0);
-      const saldo = totalReceitas - totalDespesas;
-      // Essas são as Telas que o Usuario vai ver 
+    
+      //  Busca os totais individuais diretamente da consulta do Back-end
+      //  o C# já processa a soma matemática de receitas e despesas corretamente
+      // apenas localizamos o resumo da pessoa clicada no menu lateral
+      // Isso evita falhas de letras maiúsculas/minúsculas no Front-end e garante a regra de negócio
 
+      const resumoPessoaAtual = resumo?.pessoas.find(p => p.nome === pessoaSelecionada?.nome);
+      
+      const totalReceitas = resumoPessoaAtual ? resumoPessoaAtual.receitas : 0;
+      const totalDespesas = resumoPessoaAtual ? resumoPessoaAtual.despesas : 0;
+      const saldo = resumoPessoaAtual ? resumoPessoaAtual.saldo : 0;
+
+
+      // Essas são as Telas que o Usuario vai ver 
 
       return (
 <div className="app-container" style={{ display: 'flex', height: '100vh', backgroundColor: '#F8FAFC', fontFamily: 'sans-serif' }}>
@@ -337,11 +372,53 @@ export default function App(){
                   </tbody>
                 </table>
               )}
+            {/* TABELA DE RESUMO GERAL - Exibe totais de cada pessoa e o montante final da casa */}
+            {resumo && resumo.pessoas.length > 0 && (
+              <div style={{ backgroundColor: '#FFF', borderRadius: '12px', padding: '24px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ margin: '0 0 16px 0' }}>RESUMO GERAL - TODAS AS PESSOAS</h3>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '2px solid #E2E8F0', color: '#64748B' }}>
+                      <th style={{ paddingBottom: '12px' }}>PESSOA</th>
+                      <th style={{ paddingBottom: '12px' }}>RECEITAS</th>
+                      <th style={{ paddingBottom: '12px' }}>DESPESAS</th>
+                      <th style={{ paddingBottom: '12px' }}>SALDO</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {resumo.pessoas.map((p, index) => (
+                      <tr key={index} style={{ borderBottom: '1px solid #F1F5F9' }}>
+                        <td style={{ padding: '16px 0', fontWeight: 'bold' }}>{p.nome}</td>
+                        <td style={{ padding: '16px 0', color: '#10B981' }}>R$ {p.receitas.toFixed(2)}</td>
+                        <td style={{ padding: '16px 0', color: '#EF4444' }}>R$ {p.despesas.toFixed(2)}</td>
+                        <td style={{ padding: '16px 0', color: p.saldo >= 0 ? '#10B981' : '#EF4444', fontWeight: 'bold' }}>
+                          R$ {p.saldo.toFixed(2)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    {/* Linha final exigida pela regra de negócio com a soma de todas as pessoas */}
+                    <tr style={{ borderTop: '2px solid #CBD5E1', backgroundColor: '#F8FAFC' }}>
+                      <td style={{ padding: '16px 0', fontWeight: 'bold' }}>TOTAL GERAL</td>
+                      <td style={{ padding: '16px 0', color: '#10B981', fontWeight: 'bold' }}>R$ {resumo.totalReceitas.toFixed(2)}</td>
+                      <td style={{ padding: '16px 0', color: '#EF4444', fontWeight: 'bold' }}>R$ {resumo.totalDespesas.toFixed(2)}</td>
+                      <td style={{ padding: '16px 0', color: resumo.saldoGeral >= 0 ? '#10B981' : '#EF4444', fontWeight: 'bold' }}>
+                        R$ {resumo.saldoGeral.toFixed(2)}
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            )}
             </div>
+
           </>
+          
         )}
       </main>
     </div>
+
       );
     }
 
