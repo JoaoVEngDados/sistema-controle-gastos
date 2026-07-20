@@ -19,8 +19,8 @@ builder.Services.AddCors(options =>
 // Configura o Entity Framework para ultilizar o SQLite localmente nesta fase de desenvolvimento
 // o banco será salvo automaticamente no arquivo 'gastoslocal.db'.
 
-builder.Services.AddDbContext<AppdbContext>(options => 
-  options.UseSqlite("Data Source=gastoslocal.db"));
+builder.Services.AddDbContext<AppdbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Adiciona o suporte interno para receber requisições HTTP
 builder.Services.AddControllers();

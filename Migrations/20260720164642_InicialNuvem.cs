@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace Controle_de_gastos.Migrations
 {
     /// <inheritdoc />
-    public partial class CriacaoInicial : Migration
+    public partial class InicialNuvem : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,10 +15,10 @@ namespace Controle_de_gastos.Migrations
                 name: "Pessoas",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: false),
-                    Idade = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nome = table.Column<string>(type: "text", nullable: false),
+                    Idade = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,12 +29,12 @@ namespace Controle_de_gastos.Migrations
                 name: "Transacao",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Descricao = table.Column<string>(type: "TEXT", nullable: false),
-                    Valor = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Tipo = table.Column<int>(type: "INTEGER", nullable: false),
-                    PessoaId = table.Column<long>(type: "INTEGER", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Descricao = table.Column<string>(type: "text", nullable: false),
+                    Valor = table.Column<decimal>(type: "numeric", nullable: false),
+                    Tipo = table.Column<int>(type: "integer", nullable: false),
+                    PessoaId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
