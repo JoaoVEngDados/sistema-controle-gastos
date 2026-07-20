@@ -1,0 +1,188 @@
+/* Importação da fonte moderna sem serifa exigida */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* 
+    TOKENS VISUAIS E TEMAS (Design System)
+*/
+:root {
+  /* Paleta Template Day */
+  --bg-day: #F8FAFC; /* Base limpa para evitar distrações */
+  --text-day: #1E293B; /* Títulos e parágrafos com alto contraste suave */
+  --primary-day: #3B82F6; /* Destaque para botões e ações */
+  --success-day: #10B981; /* Foco e feedbacks positivos*/
+  --accent-day: #8B5CF6; /* Detalhes de inovação e regras */
+  --surface-white: #FFFFFF; /* Fundo dos cards brancos*/
+  
+  /* Paleta Template Night  */
+  --bg-night: #0F172A; /* Base de profundidade */
+  --surface-night: #1E293B; /* Cards e modais no modo escuro */
+  --text-night: #E2E8F0; /* Texto claro para legibilidade */
+  --primary-night: #22D3EE; /* Destaques com brilho */
+
+  /* Espaçamentos e Bordas */
+  --shadow-card: 0 4px 6px rgba(0,0,0,0.05); /* Sombra muito sutil */
+  --radius-card: 12px; /* Arredondamento entre 8px e 12px */
+  --padding-container: 24px; /* Margens amplas exigidas */
+  
+  /* Cores Semânticas Extras para Transações (Positivo/Negativo) */
+  --despesa-color: #EF4444; 
+}
+
+/*
+    ESTILOS GERAIS
+ */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-day);
+  color: var(--text-day);
+  font-weight: 400; /* Peso Regular para corpo de texto */
+}
+
+h1, h2, h3 {
+  font-weight: 700; /* Peso Bold para títulos */
+  margin-top: 0;
+}
+
+/* 
+    LAYOUT PRINCIPAL (Controle de Gastos)
+ */
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Barra Lateral Esquerda: Pessoas Cadastradas */
+.sidebar {
+  width: 300px;
+  background-color: var(--surface-white);
+  border-right: 1px solid #E2E8F0;
+  padding: var(--padding-container);
+  overflow-y: auto;
+}
+
+/* Área Principal Direita */
+.main-content {
+  flex: 1;
+  padding: var(--padding-container);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 
+    COMPONENTES: CARDS E BOTOES
+/* Cards Brancos (Resumos e Informações) */
+.card {
+  background-color: var(--surface-white);
+  border-radius: var(--radius-card); 
+  box-shadow: var(--shadow-card); 
+  padding: var(--padding-container); 
+}
+
+/* Resumo Individual de Receitas, Despesas e Saldo */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.dashboard-card-title {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #64748B;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.dashboard-card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-day);
+}
+
+/* Botão Primário Inteligente */
+.btn-primary {
+  background-color: var(--primary-day); /* Fundo azul Intelligence */
+  color: var(--surface-white);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 500; /* Peso Medium */
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Botão de Excluir Pessoa */
+.btn-danger {
+  background-color: transparent;
+  color: var(--despesa-color);
+  border: 1px solid var(--despesa-color);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/*
+   LISTAGENS E TABELAS (Transações e Resumo Geral)
+ 
+/* Lista da Sidebar */
+.person-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #E2E8F0;
+  cursor: pointer;
+}
+
+/* Tabelas de Transações e Resumo Geral */
+.table-container {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #E2E8F0;
+  color: #64748B;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.table-container td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #F1F5F9;
+  color: var(--text-day);
+}
+
+/* Cores específicas para valores financeiros */
+.text-receita {
+  color: var(--success-day);
+  font-weight: 500;
+}
+
+.text-despesa {
+  color: var(--despesa-color);
+  font-weight: 500;
+}
+
+/* Destaque para Regra de Negócio (Menores de idade)*/
+.badge-regra {
+  background-color: #FEF2F2;
+  color: var(--despesa-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 8px;
+}
