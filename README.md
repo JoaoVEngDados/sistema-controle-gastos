@@ -75,6 +75,6 @@ Abaixo, um protótipo conceitual da interface final do sistema, reunindo a lista
 
 ## Status do projeto
 
-Desenvolvido  com um  cronograma de execução de 5 dias, cobrindo desde a modelagem de dados até a integração completa entre front-end, back-end e persistência em nuvem.
+o projeto ainda se encontra finalizado com as regras de negocio e Desenvolvido  com um  cronograma de execução de 5 dias, cobrindo desde a modelagem de dados até a integração completa entre front-end, back-end e persistência em nuvem, ficando para atualizações futuras o design final conforme o prototipo 
 
 
